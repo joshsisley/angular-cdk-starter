@@ -1,0 +1,6 @@
+{
+  "hosted-zone:account=201538105556:domainName=cdkdeploy.com:region=us-east-1": {
+    "Id": "/hostedzone/Z04610588AOCI8TUHEX",
+    "Name": "cdkdeploy.com."
+  }
+}

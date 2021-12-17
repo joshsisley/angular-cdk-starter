@@ -1,27 +1,17 @@
 {
   "name": "angular-cdk-starter",
-  "version": "0.1.0",
-  "bin": {
-    "angular-cdk-starter": "bin/angular-cdk-starter.js"
-  },
+  "version": "0.0.1",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk"
+    "buildclient": "cd client && npm i && npm run build && cd ../",
+    "buildcdk": "cd cdk && npm i && npm run build && cd ../",
+    "build": "npm run buildclient && npm run buildcdk",
+    "deploy": "npm run build && cd cdk && npm run deploy",
+    "test": "echo  \"no ci/cd tests setup\""
   },
-  "devDependencies": {
-    "@types/jest": "^26.0.10",
-    "@types/node": "10.17.27",
-    "jest": "^26.4.2",
-    "ts-jest": "^26.2.0",
-    "aws-cdk": "2.2.0",
-    "ts-node": "^9.0.0",
-    "typescript": "~3.9.7"
-  },
-  "dependencies": {
-    "aws-cdk-lib": "2.2.0",
-    "constructs": "^10.0.0",
-    "source-map-support": "^0.5.16"
+  "license": "MIT",
+  "author": {
+    "name": "Josh Sisley",
+    "email": "josh@sisley.tech",
+    "url": "https://sisley.tech"
   }
 }
