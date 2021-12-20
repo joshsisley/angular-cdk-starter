@@ -9,4 +9,11 @@ new CdkStack(app, "CdkStack", {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: process.env.CDK_DEFAULT_REGION,
   },
+  tags: {
+    Project: "Angular CDK Starter",
+    Application: "angular-cdk-starter",
+    Environment: "Dev",
+    Version: "0.0.1",
+    Owner: "josh@sisley.tech",
+  },
 });
