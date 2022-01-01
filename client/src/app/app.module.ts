@@ -8,11 +8,23 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { CoreModule } from './core/core.module';
+import { HttpClientModule } from '@angular/common/http';
+import { MetaReducer, StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AppStoreModule } from './store/app-store.module';
+
+export const metaReducers: MetaReducer<any>[] = environment.production
+  ? []
+  : [];
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    CoreModule,
+    AppStoreModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -23,6 +35,8 @@ import { MatCardModule } from '@angular/material/card';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
+    StoreModule.forRoot({}, { metaReducers }),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent],
