@@ -13,13 +13,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { MetaReducer, StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppStoreModule } from './store/app-store.module';
+import { LoginComponent } from './login/login.component';
+import { authReducer } from './store/reducers';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 export const metaReducers: MetaReducer<any>[] = environment.production
   ? []
   : [];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     CoreModule,
@@ -28,6 +32,8 @@ export const metaReducers: MetaReducer<any>[] = environment.production
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatCardModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
@@ -35,7 +41,7 @@ export const metaReducers: MetaReducer<any>[] = environment.production
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
-    StoreModule.forRoot({}, { metaReducers }),
+    StoreModule.forRoot({ auth: authReducer }, { metaReducers }),
     EffectsModule.forRoot([]),
   ],
   providers: [],

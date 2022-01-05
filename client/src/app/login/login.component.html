@@ -1,0 +1,27 @@
+<div class="login">
+  <form class="login-form" [formGroup]="loginForm" (submit)="login()">
+    <div class="form-control">
+      <mat-form-field floatLabel="always" color="primary" appearance="outline">
+        <mat-label position="fixed">Email</mat-label>
+        <input
+          matInput
+          placeholder="Email"
+          type="email"
+          formControlName="email"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-control">
+      <mat-form-field floatLabel="always" color="primary" appearance="outline">
+        <mat-label position="fixed">Password</mat-label>
+        <input
+          matInput
+          placeholder="Password"
+          type="password"
+          formControlName="password"
+        />
+      </mat-form-field>
+    </div>
+    <button [disabled]="!loginForm.valid" type="submit">Submit</button>
+  </form>
+</div>

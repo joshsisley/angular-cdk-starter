@@ -10,7 +10,7 @@ import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 
 @NgModule({
   imports: [CommonModule, SharedModule, RouterModule],
-  exports: [],
+  exports: [SharedModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
   ],
